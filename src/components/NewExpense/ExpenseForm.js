@@ -2,47 +2,24 @@ import "./ExpenseForm.css";
 import React, { useState } from "react";
 
 const ExpenseForm = (props) => {
-  // Se pueden usar tanto state individuales (comentados) o multiples (no comentados). Preferiblemente individual
-
-  const [enteredTitle, setEnteredTitle] = useState(""); // Se inializa a vacio porque al principio siempre esta vacio
+  const [enteredTitle, setEnteredTitle] = useState(""); 
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-  // const [userInput, setUserInput] = useState({
-  //    enteredTitle: '',
-  //    enteredAmount: '',
-  //    enteredDate: ''
-  // });
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
-    // setUserInput({
-    //    ...userInput, // Lo que hace es coger key y value del object y con el de abajo hace override en el title
-    //    enteredTitle: event.target.value,
-    // });
-    // If your state update depends on the previous state use this function form (Es igual que las demas)
-    // setUserInput((prevState) => {
-    //    return { ...prevState, enteredTitle: event.target.value};
-    // });
   };
 
   const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value);
-    // setUserInput({
-    //    ...userInput, // Lo que hace es coger key y value del object y con el de abajo hace override en el title
-    //    enteredAmount: event.target.value,
-    // });
   };
 
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
-    // setUserInput({
-    //    ...userInput, // Lo que hace es coger key y value del object y con el de abajo hace override en el title
-    //    enteredDate: event.target.value,
-    // });
   };
 
   const submitHandler = (event) => {
-    event.preventDefault(); // hace que no se refresque la pagina al hacer submit
+    event.preventDefault(); 
 
     const expenseData = {
       title: enteredTitle,
@@ -50,9 +27,7 @@ const ExpenseForm = (props) => {
       date: new Date(enteredDate),
     };
 
-    // Para pasar datos de un hijo al padre utilizamos una funcion creada en el padre mediante props
     props.onSaveExpenseData(expenseData);
-    // vaciamos el input una vez hecho submit (metemos la variable en el value del input)
     setEnteredTitle('');
     setEnteredAmount('');
     setEnteredDate('');

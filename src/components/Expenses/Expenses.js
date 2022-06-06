@@ -14,8 +14,6 @@ function Expenses(props) {
     setFilteredYear(selectedYear);
   };
 
-  // Tambien se podria filtrar de esta forma, y luego en el map, mapear por filteredExpenses en vez de props.items
-
   const filteredExpenses = props.items.filter((expense) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });

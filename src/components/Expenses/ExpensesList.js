@@ -9,7 +9,7 @@ const ExpensesList = props => {
   return <ul className="expenses-list">
       {props.items.map((expense, index) => (
       <ExpenseItem
-        key={index} // permite identificar a react los items y mejorar performance (se podria utilizar expense.id)
+        key={index}
         title={expense.title}
         amount={expense.amount}
         date={expense.date}
